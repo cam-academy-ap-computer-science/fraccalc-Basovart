@@ -1,10 +1,23 @@
+/*
+ * Create scanner 
+ * have the input be passed to produceAnswer
+ * break up produceAnswer into three strings
+ * 	first operand
+ *  operator
+ *  second operand
+ * store these in produceAnswer
+ * produceAnswer return the second operand
+ * main prints the return value
+ */
 package fracCalc;
-
+import java.util.Scanner;
 public class FracCalc {
-
     public static void main(String[] args) 
     {
-        // TODO: Read the input from the user and call produceAnswer with an equation
+    	Scanner userInput = new Scanner(System.in);
+    	String input = userInput.next();
+    	System.out.println("");
+    	
 
     }
     
@@ -18,9 +31,10 @@ public class FracCalc {
     //      e.g. return ==> "1_1/4"
     public static String produceAnswer(String input)
     { 
-        // TODO: Implement this function to produce the solution to the input
-        
-        return "";
+    	String firstOperand;
+    	String operator;
+    	String secondOperand = "";
+        return secondOperand;
     }
 
     // TODO: Fill in the space below with any helper methods that you think you will need
