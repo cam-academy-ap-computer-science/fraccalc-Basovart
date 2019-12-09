@@ -17,19 +17,23 @@
 package fracCalc;
 import java.util.Scanner;
 public class FracCalc {
-    public static void main(String[] args) 
-    {
+    public static void main(String[] args) {
     	Scanner userInput = new Scanner(System.in);
-    	String input1 = "";
-
-    	do {String input = userInput.nextLine();
-    	produceAnswer(input);
-    	System.out.println();
-    	} while (input1 != "quit"); 
-    	if (input1 == "quit") {
+    	System.out.println("What calculation should be performed? (type \"quit\" to stop) ");
+    	String input = userInput.nextLine();
+    	if (input.equals("quit")) {
     		System.out.println("Good Bye");
-    	}
+    	} 
+    	while (!input.equals("quit")) {
+    		System.out.println(produceAnswer(input));
+    		System.out.println("What calculation should be performed? (type \"quit\" to stop) ");
+    		input = userInput.nextLine();
+    	} 
+    	if (input.equals("quit")) {
+    		System.out.println("Good Bye");
+    	} 
     }
+    
     
     // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
     // This function takes a String 'input' and produces the result
@@ -43,11 +47,12 @@ public class FracCalc {
     	
     	int length = input.length();
     	int space = input.indexOf(" ");
-    	int x = space + 3;
+    	int secondSpace = input.lastIndexOf(" ");
     	String firstOperand = input.substring(0 ,space);
-    	String operator = input.substring(space, space + 2);
-    	String secondOperand = input.substring(x, length);
-        
+    	char operator = input.charAt(space + 1);
+    	String secondOperand = input.substring(secondSpace + 1, length);
+        int secondUnder = input.lastIndexOf("_");
+        int secondDiv = input.lastIndexOf("/");
         String Whole = "";
 		String Numerator = "";	
 		String Denominator = "";
@@ -56,8 +61,19 @@ public class FracCalc {
         	Whole = secondOperand;
         	Numerator = "0";
         	Denominator = "1";
-        }
-		System.out.print("whole:" + Whole + " numerator:" + Numerator + " denominator:" + Denominator);
+        } else {
+			Whole = input.substring(secondSpace+1,secondUnder);	
+			Numerator = input.substring(secondUnder+1,secondDiv);
+			Denominator = input.substring(secondDiv+1,length);
+  		  } 
+		/*
+		if (secondOperand.indexOf("_") == -1 && input.lastIndexOf("/") != -1) {
+			Whole = "0";
+			Numerator = (input.substring(secondSpace + 1,secondDiv - 1));
+			Denominator = (input.substring(secondDiv+1,length));
+		}
+		*/
+		System.out.println("whole:" + Whole + " numerator:" + Numerator + " denominator:" + Denominator);
        
 		return secondOperand;
     }
