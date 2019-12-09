@@ -61,20 +61,17 @@ public class FracCalc {
         	Whole = secondOperand;
         	Numerator = "0";
         	Denominator = "1";
-        } else {
+        } else if (secondOperand.indexOf("_") != -1 && secondOperand.indexOf("/") != -1) {
 			Whole = input.substring(secondSpace+1,secondUnder);	
 			Numerator = input.substring(secondUnder+1,secondDiv);
 			Denominator = input.substring(secondDiv+1,length);
-  		  } 
-		/*
-		if (secondOperand.indexOf("_") == -1 && input.lastIndexOf("/") != -1) {
+  		  } else if (secondOperand.indexOf("_") == -1 && input.lastIndexOf("/") != -1) {
 			Whole = "0";
-			Numerator = (input.substring(secondSpace + 1,secondDiv - 1));
+			Numerator = (input.substring(secondSpace + 1,secondDiv));
 			Denominator = (input.substring(secondDiv+1,length));
-		}
-		*/
-		System.out.println("whole:" + Whole + " numerator:" + Numerator + " denominator:" + Denominator);
-       
+		    }
+		
+		System.out.println("\"whole:" + Whole + " numerator:" + Numerator + " denominator:" + Denominator);
 		return secondOperand;
     }
     
