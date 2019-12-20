@@ -110,7 +110,7 @@ public class FracCalc {
 		
 		return secondOperand;
     }
-    
+   
     public static String add(int Whole1, int Whole2, int Numerator1, int Numerator2, int Denominator1, int Denominator2) {
     	int Num1;
     	int Num2;
@@ -118,7 +118,7 @@ public class FracCalc {
     	int Den2;
     	int numFinal = 0;
     	int denFinal = 0;
-    	int finalWhole;
+    	int finalWhole = 0;
     	if (Denominator1 != Denominator2) {
     		Num1 = Numerator1 * Denominator2;
     		Num2 = Numerator2 * Denominator1;
@@ -129,20 +129,22 @@ public class FracCalc {
     	}
     	if (Denominator1 == Denominator2) {
     		numFinal = Numerator1 + Numerator2;
-    		denFinal = Denominator1 + Denominator2;
+    		denFinal = Denominator1;
     	}
     //Whole
     	if (Whole1 == -1 && Whole2 == -1) {
     		finalWhole = 0;
-    	} else {
+    	} 
+    	if (Whole1 != -1 && Whole2 != -1) {
     		finalWhole = Whole1 + Whole2;
-    	  }
+    	}
     	if (Whole1 != -1 && Whole2 == -1) {
     		finalWhole = Whole1;
-    	} else {
+    	} 
+    	if (Whole1 == -1 && Whole2 != -1) {
     		finalWhole = Whole2;
-    	  }
-    	
+    	}
+
     	
     	String answer = (finalWhole + numFinal + "/" + denFinal);
     	System.out.println(answer);
@@ -154,6 +156,17 @@ public class FracCalc {
     	return answer;
     }
     public static String mul(int Whole1,int Whole2,int Numerator1, int Numerator2, int Denominator1, int Denominator2) {
+    	int Num1;
+    	int Num2;
+    	int Den1;
+    	int Den2;
+    	int numFinal = 0;
+    	int denFinal = 0;
+    	int finalWhole = 0;
+    	
+    	if () {
+    		
+    	}
     	
     	return answer;
     }
@@ -163,5 +176,5 @@ public class FracCalc {
     }
     
     // TODO: Fill in the space below with any helper methods that you think you will need
-    
+  
 }
