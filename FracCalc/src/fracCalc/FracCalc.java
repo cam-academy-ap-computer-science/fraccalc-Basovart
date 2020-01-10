@@ -133,30 +133,20 @@ public class FracCalc {
 		denFinal = Denominator1;
 		finalWhole = numFinal / denFinal;
 		numFinal = numFinal % denFinal;
-
-		
-    	//simplifies the fractions
-    	int smaller = numFinal < denFinal ? numFinal : denFinal;
-		int gcf = -1;
-		for (int i = smaller; i > 0; i--) {
-			if ((numFinal % i == 0) && (denFinal % i == 0)) {
-				gcf = i;
-				break;
-			}
-		}
-		
+		//simplifies the fractions
+		int simple = gcd(numFinal, denFinal);
+    	numFinal = numFinal/simple;
+    	denFinal = denFinal/simple;
 		//puts the answer together in the appropriate format
 		if(finalWhole == 0 && numFinal != 0) { //fraction
-			answer = numFinal/gcf + "/" + (Math.abs(denFinal/gcf));
+			answer = numFinal + "/" + (Math.abs(denFinal));
 		} else if(finalWhole != 0 && numFinal != 0) { //mixed number
-			answer = finalWhole + "_" + (Math.abs(numFinal/gcf)) + "/" + (Math.abs(denFinal/gcf));
+			answer = finalWhole + "_" + (Math.abs(numFinal)) + "/" + (Math.abs(denFinal));
 		} else if(finalWhole != 0 && numFinal == 0) { //whole number
 			answer = Integer.toString(finalWhole);
 		} else if(finalWhole == 0 && numFinal == 0) {//zero
 			answer = Integer.toString(finalWhole);
 		}
-		
-		
 		return answer;
     }
     
@@ -188,21 +178,15 @@ public class FracCalc {
     	denFinal = Denominator1;
     	finalWhole = numFinal / denFinal;
     	numFinal = numFinal % denFinal;
-    	
     	//simplify function
-    	int smaller = numFinal < denFinal ? numFinal : denFinal;
-		int gcf = -1;
-		for (int i = smaller; i > 0; --i) {
-			if ((numFinal % i==0) && (denFinal%i==0)) {
-				gcf = i;
-				break;
-			}
-		}
+    	int simple = gcd(numFinal, denFinal);
+    	numFinal = numFinal/simple;
+    	denFinal = denFinal/simple;
 		//puts the answer together in the appropriate format
 		if(finalWhole == 0 && numFinal != 0) { //fraction
-			answer = numFinal/gcf + "/" + (Math.abs(denFinal/gcf));
+			answer = numFinal + "/" + (Math.abs(denFinal));
 		} else if(finalWhole != 0 && numFinal != 0) { //mixed number
-			answer = finalWhole + "_" + (Math.abs(numFinal/gcf)) + "/" + (Math.abs(denFinal/gcf));
+			answer = finalWhole + "_" + (Math.abs(numFinal)) + "/" + (Math.abs(denFinal));
 		} else if(finalWhole != 0 && numFinal == 0) { //whole number
 			answer = Integer.toString(finalWhole);
 		} else if(finalWhole == 0 && numFinal == 0) {//zero
@@ -233,19 +217,15 @@ public class FracCalc {
     	finalWhole = numFinal / denFinal;
     	numFinal = numFinal % denFinal;
     	//simplify function
-    	int smaller = numFinal < denFinal ? numFinal : denFinal;
-		int gcf = -1;
-		for (int i = smaller; i > 0; --i) {
-			if ((numFinal % i==0) && (denFinal%i==0)) {
-				gcf = i;
-				break;
-			}
-		}
+    	int simple = gcd(numFinal, denFinal);
+    	numFinal = numFinal/simple;
+    	denFinal = denFinal/simple;
+    	
 		//puts the answer together in the appropriate format
 		if (finalWhole == 0 && numFinal != 0) {
-			answer = numFinal/gcf + "/" + (Math.abs(denFinal/gcf));
+			answer = numFinal + "/" + (Math.abs(denFinal));
 		} else if (finalWhole != 0 && numFinal != 0) {
-			answer = finalWhole + "_" + (Math.abs(numFinal/gcf)) + "/" + (Math.abs(denFinal/gcf));
+			answer = finalWhole + "_" + (Math.abs(numFinal)) + "/" + (Math.abs(denFinal));
 		} else if (finalWhole != 0 && numFinal == 0) {
 			  answer = Integer.toString(finalWhole);
 	    } else if (finalWhole == 0 && numFinal == 0) {
@@ -259,7 +239,7 @@ public class FracCalc {
 		int numFinal;
 		int denFinal;
 		//converts to improper fraction
-		if (Whole1 < 0) {
+    	if (Whole1 < 0) {
     		Numerator1 = (Whole1 * Denominator1) - Numerator1;
     	} else if (Whole1 > 0) {
     		Numerator1 = (Whole1 * Denominator1) + Numerator1;
@@ -279,27 +259,26 @@ public class FracCalc {
     	finalWhole = numFinal / denFinal;
     	numFinal = numFinal % denFinal;
     	//simplify function
-    	int smaller = numFinal < denFinal ? numFinal : denFinal;
-		int gcf = -1;
-		for (int i = smaller; i > 0; --i) {
-			if ((numFinal % i==0) && (denFinal%i==0)) {
-				gcf = i;
-				break;
-			}
-		}
-		//puts the answer together in the appropriate format
+    	int simple = gcd(numFinal, denFinal);
+    	numFinal = numFinal/simple;
+    	denFinal = denFinal/simple;
+    	//puts the answer together in the appropriate format
 		if (finalWhole == 0 && numFinal != 0) {
-			answer = numFinal/gcf + "/" + (Math.abs(denFinal/gcf));
+			answer = numFinal + "/" + (Math.abs(denFinal));
 		} else if (finalWhole != 0 && numFinal != 0) {
-			answer = finalWhole + "_" + (Math.abs(numFinal/gcf)) + "/" + (Math.abs(denFinal/gcf));
+			answer = finalWhole + "_" + (Math.abs(numFinal)) + "/" + (Math.abs(denFinal));
 		} else if (finalWhole != 0 && numFinal == 0) {
 			  answer = Integer.toString(finalWhole);
-		} else if (finalWhole == 0 && numFinal == 0) {
+	    } else if (finalWhole == 0 && numFinal == 0) {
 		    	answer = Integer.toString(finalWhole);
 		}
-		
     	return answer;
     }
-    
+    public static int gcd(int a, int b) {
+		if (b == 0) {
+			return a;
+		}
+    	return (gcd(b, a%b));
+    }
     // TODO: Fill in the space below with any helper methods that you think you will need
 }
